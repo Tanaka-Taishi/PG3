@@ -1,16 +1,7 @@
-#include"Enemy.h"
 #include <stdio.h>
 #include <Windows.h>
-
-void (Enemy::* Enemy::pPhaseTable[])() = {
-	&Enemy::Approach,//0
-	&Enemy::Shot,	 //1
-	&Enemy::Leave,	 //2
-};
-
-void Enemy::Init() {
-	//pFunc = &Enemy::TestFunc;
-}
+#include<time.h>
+#include<functional>
 
 typedef void(*PFunc)(int*);
 
@@ -22,43 +13,32 @@ void setTimeout(PFunc p, int second) {
 	p(&second);
 }
 
-void Enemy::Update() {
-	switch (phase_) {
+int main(int argc, const char* argv[]) {
 
-	case Phase::kApproach:
-		Approach();
-		break;
 
-	case Phase::kShot:
-		Enemy::Shot();
-		break;
+	srand((unsigned int)time(nullptr));
 
-	case Phase::kLeave:
-		Enemy::Leave();
-		break;
-	}
+	std::function<int(int)> fx = [](int i) {return i + 1; };
+	auto fx2 = [=](int i) {return i + 1; };
 
-	(this->*pPhaseTable[0])();
+	int userAnswer = 0;
+	int Answer = 0;
+
+	Answer = fx(rand() % 6) % 2;
+
+	printf("奇数か偶数かを予想する、偶数なら　０，奇数なら　1　を入力してください ");
+	scanf_s("%d", &userAnswer);
+
 	PFunc p;
 	p = DispResult;
 	setTimeout(p, 3);
-	(this->*pPhaseTable[1])();
-	p = DispResult;
-	setTimeout(p, 3);
-	(this->*pPhaseTable[2])();
-}
 
-void Enemy::Approach() {
+	if (userAnswer == Answer) {
+		printf("正解\n");
+	}
+	else if (userAnswer != Answer) {
+		printf("不正解\n");
+	}
 
-	printf("接近\n");
-}
-
-void Enemy::Leave() {
-
-	printf("離脱\n");
-}
-
-void Enemy::Shot() {
-
-	printf("射撃\n");
+	return 0;
 }
