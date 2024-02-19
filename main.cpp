@@ -1,64 +1,13 @@
-#include"Enemy.h"
 #include <stdio.h>
+#include"Enemy.h"
 #include <Windows.h>
 
-void (Enemy::* Enemy::pPhaseTable[])() = {
-	&Enemy::Approach,//0
-	&Enemy::Shot,	 //1
-	&Enemy::Leave,	 //2
-};
-
-void Enemy::Init() {
-	//pFunc = &Enemy::TestFunc;
-}
-
-typedef void(*PFunc)(int*);
-
-void DispResult(int* s) {
-
-}
-void setTimeout(PFunc p, int second) {
-	Sleep(second * 1000);
-	p(&second);
-}
-
-void Enemy::Update() {
-	switch (phase_) {
-
-	case Phase::kApproach:
-		Approach();
-		break;
-
-	case Phase::kShot:
-		Enemy::Shot();
-		break;
-
-	case Phase::kLeave:
-		Enemy::Leave();
-		break;
+int main(int argc, const char* argv[]) {
+	Enemy enemy;
+	//enemy.Init();
+	for (int i = 0; i < 3; i++) {
+		enemy.Update();
 	}
-
-	(this->*pPhaseTable[0])();
-	PFunc p;
-	p = DispResult;
-	setTimeout(p, 3);
-	(this->*pPhaseTable[1])();
-	p = DispResult;
-	setTimeout(p, 3);
-	(this->*pPhaseTable[2])();
+	return 0;
 }
 
-void Enemy::Approach() {
-
-	printf("ê⁄ãﬂ\n");
-}
-
-void Enemy::Leave() {
-
-	printf("ó£íE\n");
-}
-
-void Enemy::Shot() {
-
-	printf("éÀåÇ\n");
-}

@@ -7,6 +7,10 @@ public:
 
 	void Update();
 
+	void Approach();
+	void Leave();
+	void Shot();
+
 private:
 
 	enum class Phase {
@@ -15,11 +19,7 @@ private:
 		kLeave,
 	};
 
-	void Approach();
-	void Leave();
-	void Shot();
-
-	Phase phase_;
+	Phase phase_ = Phase::kApproach;
 
 	static void (Enemy::* pPhaseTable[])();
 };
