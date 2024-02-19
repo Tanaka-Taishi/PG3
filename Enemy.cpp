@@ -4,7 +4,6 @@
 
 
 void Enemy::Init() {
-	//pFunc = &Enemy::TestFunc;
 }
 
 typedef void(*PFunc)(int*);
