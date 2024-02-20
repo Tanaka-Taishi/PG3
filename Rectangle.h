@@ -5,7 +5,6 @@ class Rectangle : public IShape {
 public:
 	Rectangle();
 	~Rectangle();
-	//void Bark();
 	void Size() override;
 	void Draw() override;
 

@@ -5,7 +5,6 @@ class Circle : public IShape {
 public:
 	Circle();
 	~Circle();
-	//void Bark();
 	void Size() override;
 	void Draw() override;
 
