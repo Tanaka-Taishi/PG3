@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 Circle::Circle() {
-	name = "‰~Œ`";
 }
 
 Circle::~Circle() {
@@ -11,9 +10,9 @@ Circle::~Circle() {
 
 void Circle::Size() {
 	size = radius * radius * 3.14;
-	printf("%s‚Ì–ÊÏ = %f\n", name,size);
+	printf("‰~Œ`‚Ì–ÊÏ = %f\n",size);
 }
 
 void Circle::Draw() {
-	printf("–ÊÏ = %f‚Ì%s‚ğ•`‰æ\n",size, name);
+	printf("–ÊÏ = %f‚Ì‰~Œ`‚ğ•`‰æ\n",size);
 }

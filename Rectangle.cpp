@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 Rectangle::Rectangle() {
-	name = "‹éŒ`";
 }
 
 Rectangle::~Rectangle() {
@@ -11,9 +10,9 @@ Rectangle::~Rectangle() {
 
 void Rectangle::Size() {
 	size = vertical * beside;
-	printf("%s‚Ì–ÊÏ = %f\n", name, size);
+	printf("‹éŒ`‚Ì–ÊÏ = %f\n", size);
 }
 
 void Rectangle::Draw() {
-	printf("–ÊÏ = %f‚Ì%s‚ğ•`‰æ\n", size, name);
+	printf("–ÊÏ = %f‚Ì‹éŒ`‚ğ•`‰æ\n", size);
 }
